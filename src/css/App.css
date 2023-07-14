@@ -1,0 +1,317 @@
+@font-face {
+  font-family: Permanent_Marker;
+  src: url(../fonts/Permanent_Marker/PermanentMarker-Regular.ttf);
+}
+
+body {
+  background-color: #21D4FD;
+  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-repeat: no-repeat;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.main .container {
+  min-width: 260px;
+  padding: 30px;
+  border-radius: 15px;
+  row-gap: 20px;
+  background-color: rgba(255, 255, 255, 0.5019607843);
+  display: flex;
+  flex-direction: column;
+}
+
+.main .container .title {
+  width: 100%;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: black;
+  font-weight: bold;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+}
+
+.main .container .play-area {
+  width: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  border-radius: 8px;
+  padding-bottom: 5px;
+}
+
+.main .container .play-area .line {
+  display: none;
+  height: 8px;
+  border-radius: 10px;
+  background-color: red;
+  position: absolute;
+  z-index: 1;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.main .container .play-area #line-1 {
+  width: 90%;
+  margin-top: 38px;
+  margin-left: 12px;
+  animation-name: horizontalfill;
+}
+
+.main .container .play-area #line-2 {
+  width: 90%;
+  align-self: center;
+  margin-left: 12px;
+  animation-name: horizontalfill;
+}
+
+.main .container .play-area #line-3 {
+  width: 90%;
+  margin-bottom: 38px;
+  align-self: flex-end;
+  margin-left: 12px;
+  animation-name: horizontalfill;
+}
+
+.main .container .play-area #line-4 {
+  width: 8px;
+  height: 90%;
+  margin-top: 12px;
+  margin-left: 39px;
+  animation-name: verticalfill;
+}
+
+.main .container .play-area #line-5 {
+  width: 8px;
+  height: 90%;
+  margin-top: 12px;
+  margin-left: 127.33px;
+  animation-name: verticalfill;
+}
+
+.main .container .play-area #line-6 {
+  width: 8px;
+  height: 90%;
+  margin-top: 12px;
+  margin-left: 216.66px;
+  animation-name: verticalfill;
+}
+
+.main .container .play-area .crossfill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  background-color: transparent;
+  z-index: 0;
+}
+
+.main .container .play-area .crossfill.zindex {
+  z-index: 1;
+}
+
+.main .container .play-area #line-7 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: transparent;
+  animation-name: crossfill;
+}
+
+.main .container .play-area #line-7:after {
+  content: "";
+  position: absolute;
+  border-top: 8px solid red;
+  border-radius: 20px;
+  width: 124%;
+  margin-top: 15px;
+  margin-left: 19px;
+  transform: rotate(44.9deg);
+  transform-origin: 0% 0%;
+}
+
+.main .container .play-area #line-8 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: transparent;
+  animation-name: crossfill;
+}
+
+.main .container .play-area #line-8:after {
+  content: "";
+  position: absolute;
+  border-top: 8px solid red;
+  border-radius: 20px;
+  width: 124%;
+  margin-top: 20px;
+  margin-left: 247px;
+  transform: rotate(135deg);
+  transform-origin: 0% 0%;
+}
+
+@keyframes horizontalfill {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 90%;
+  }
+}
+
+@keyframes verticalfill {
+  from {
+    height: 0%;
+  }
+
+  to {
+    height: 90%;
+  }
+}
+
+@keyframes crossfill {
+  from {
+    width: 0%;
+    height: 0%;
+  }
+
+  to {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.main .container .play-area .grid-layout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 81.33px 81.33px 81.35px;
+  grid-template-rows: 81.33px 81.33px 81.33px;
+  -moz-column-gap: 8px;
+  column-gap: 8px;
+  row-gap: 8px;
+  position: relative;
+  font-family: Permanent_Marker, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.main .container .play-area .grid-layout .box {
+  width: 100%;
+  border-radius: 8px;
+  font-size: 56px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 2px 4px darkgray;
+  transition: all 0.2s ease-in;
+  z-index: 1;
+}
+
+/* .main .container .play-area .grid-layout .box.hint {
+  color: gray;
+} */
+
+.main .container .play-area .grid-layout .box_hover:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 4px darkgray;
+}
+
+.main .container .status {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  font-size: 20px;
+}
+
+.main .container .status .player {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  font-size: 20px;
+  font-family: Permanent_Marker, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.main .container .reset-btn {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-image: linear-gradient(199deg, #21D4FD 0%, #B721FF 100%);
+  font-family: inherit;
+  outline: none;
+  border: none;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 2px 4px darkgray;
+  transition: all 0.2s ease-in;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.main .container .reset-btn:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 4px darkgray;
+}
+
+.main .game-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 50px;
+  border-radius: 10px;
+  background: #FFFFFF80;
+  margin-left: 10px;
+}
+
+.main .game-info span {
+  font-weight: bold;
+}
+
+.main .game-info ol {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 0;
+}
+
+.main .game-info ol li button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  /* font-weight: bold; */
+  cursor: pointer;
+}
